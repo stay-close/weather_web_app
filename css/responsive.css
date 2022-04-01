@@ -21,4 +21,15 @@
     .future_forecast {
         grid-template-columns: 1fr;
     }
+    .search_container {
+        height: auto;
+        padding: 10px 0;
+    }
+    #search_form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
 }
