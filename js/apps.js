@@ -72,7 +72,7 @@ searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const searchVlue = searchInput.value.trim();
 
-    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchVlue + apiKey)
+    fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + searchVlue + apiKey)
         .then(resp => resp.json())
         .then(DATA => getCityDetails(DATA))
 })
