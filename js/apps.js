@@ -41,7 +41,7 @@ function getCurrentWeatherData(weather) {
     `;
 
     for (let i = 0; i <= 4; i++) {
-        console.log(weather.daily[i])
+
         const singleForecastEl = document.createElement('div');
         singleForecastEl.classList.add('single_forecast');
         const weatherDay = window.moment(weather.daily[i].dt * 1000).format('ddd');
@@ -72,17 +72,19 @@ searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const searchVlue = searchInput.value.trim();
 
-    fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + searchVlue + apiKey)
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchVlue + apiKey)
         .then(resp => resp.json())
         .then(DATA => getCityDetails(DATA))
 })
 
 function getCityDetails(city) {
-    console.log(city);
+
     const lati = city[0].lat;
     const long = city[0].lon;
     futureForecast.innerHTML = "";
     getWeatherData(mainUrl + 'lat=' + lati + '&lon=' + long + apiOptions + apiKey);
+
+
 }
 
 
