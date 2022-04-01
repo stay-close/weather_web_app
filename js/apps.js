@@ -68,13 +68,21 @@ function getCurrentWeatherData(weather) {
 const searchForm = document.querySelector('#search_form');
 const searchInput = document.querySelector('#search_input');
 
-searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const searchVlue = searchInput.value.trim();
+// searchForm.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     const searchVlue = searchInput.value.trim();
 
-    fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + searchVlue + apiKey)
-        .then(resp => resp.json())
-        .then(DATA => getCityDetails(DATA))
+//     fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + searchVlue + apiKey)
+//         .then(resp => resp.json())
+//         .then(DATA => getCityDetails(DATA))
+// })
+searchForm.addEventListener('submit', async(e) => {
+    e.preventDefault();
+    const searchValue = searchInput.value.trim();
+
+    const response = await fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + searchValue + apiKey)
+    const data = await response.json()
+    getCityDetails(data)
 })
 
 function getCityDetails(city) {
