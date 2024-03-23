@@ -80,7 +80,7 @@ searchForm.addEventListener('submit', async(e) => {
     e.preventDefault();
     const searchValue = searchInput.value.trim();
 
-    const response = await fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + searchValue + apiKey)
+    const response = await fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchValue + apiKey)
     const data = await response.json()
     getCityDetails(data)
 })
